@@ -1,5 +1,6 @@
 {
     "name": "nemke/pivo",
+    "author": "Nemanja Stefanovic",
     "description": "Пакет за пивопије. БРЕ!",
     "keywords": ["nemke", "pivo", "beer"],
     "license": "MIT",
