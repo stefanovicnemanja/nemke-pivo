@@ -8,9 +8,6 @@
         "php": "^7.0"
     },
     "autoload": {
-        "classmap": [
-            "src/database"
-        ],
         "psr-4": {
             "Nemke\\Pivo\\": "src/"
         }
