@@ -2,6 +2,8 @@
 
 Ово нам је код наше апликације са све коментарима:
 
+<!-- language: lang-php -->
+
     <?php
 
     namespace Nemke\Pivo\App\Providers;    // Ovako zato sto namespace u json podrazumeva src 
