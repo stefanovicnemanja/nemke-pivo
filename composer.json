@@ -1,5 +1,5 @@
 {
-    "name": "nemke/pivo",
+    "name": "nemke/pivo",     //        Proizvodjac/ime paketa
     "author": "Nemanja Stefanovic",
     "description": "Пакет за пивопије. БРЕ!",
     "keywords": ["nemke", "pivo", "beer"],
@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nemke\\Pivo\\": "src/"
-        }
+            "Nemke\\Pivo\\": "src/"  // Sve klase su relativne u odnosu na src direktorijum 
+        }                            // npr. Nemke\Pivo\App\Http\Controllers ce se nalaziti u src/app/http/controllers
     }
 }

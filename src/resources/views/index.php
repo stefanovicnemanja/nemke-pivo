@@ -5,12 +5,15 @@
 	<title>Document</title>
 </head>
 <body>
-	Овде су сва пива.
+
+	<a href="/beer/create">upisi novo pivo</a>
+	
+	<p>Овде су сва пива.</p>
 
 	<ul>
 		<?php foreach($beers as $key => $beer) : ?>
 
-		<li><a href="/piva/single/<?php echo $key ?>"><?php echo $beer; ?></a></li>
+		<li><a href="/beer/<?php echo $key ?>"><?php echo $beer; ?></a></li>
 
 		<?php endforeach; ?>
 	</ul>

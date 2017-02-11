@@ -7,6 +7,8 @@
 <body>
 	<p>Ође ти је једно пиво. БА!</p>
 
-	<a href="/piva"><< Назад на сва пива.</a>
+	<p> <?php echo $beer['name']; ?> <a href="/beer/<?php echo $beer['id'] ?>/edit">Промени <?php echo $beer['name']; ?></a></p> 
+
+	<a href="/beer"><< Назад на сва пива.</a>
 </body>
 </html>

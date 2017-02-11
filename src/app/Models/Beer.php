@@ -10,7 +10,7 @@ class Beer
 			"jelen",
 			"lav",
 			"erdinger",
-			"pisner"
+			"pilsner"
 		);
 	}
 
@@ -19,6 +19,9 @@ class Beer
 	{
 		$all = $this->all();
 
-		return $all[$id];
+		return array(
+			'id' => $id,
+			'name' => $all[$id]
+		);
 	}
 }
