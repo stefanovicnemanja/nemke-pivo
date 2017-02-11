@@ -2,7 +2,7 @@
 
 Ово нам је код наше апликације са све коментарима:
 
-<!-- language: lang-php -->
+```php
 
     <?php
 
@@ -22,3 +22,4 @@
 
 
     // kORISTI ZA POVEZIVANJE NASEG PAKETA SA LARAVELOM
+```
