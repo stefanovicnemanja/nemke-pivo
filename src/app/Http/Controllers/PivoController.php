@@ -63,22 +63,26 @@ class PivoController
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
 		return view('pivo::single', compact('beer'));
-
-		dd($beer);
 	}
 
 
 	public function edit($id)
 	{
-		$beer = $this->beer->singleBeer($id);
+		$beer = $this->beer->where('id',$id)->firstOrFail();
 
 		return view('pivo::edit', compact('beer'));
 	}
 
 
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+		$this->beer->brand = $this->$request->input('beer-update');
+
+		$this->beer->save();
+
+		Session::flash('flash_message', 'Task successfully added!');
+
+    	return redirect()->back();
 	}
 
 
