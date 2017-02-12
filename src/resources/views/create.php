@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
 
+
+@extends('pivo::layout')
+
+@section('content')
 	<a href="/beer">vrati na pocetnu </a>
 	<form action="/beer">
 		<input type="text">
 		<input type="submit">
 	</form>
-
-</body>
-</html>
+@endsection
