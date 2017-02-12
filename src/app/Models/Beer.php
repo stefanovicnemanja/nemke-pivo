@@ -2,23 +2,9 @@
 
 namespace Nemke\Pivo\App\Models;
 
-class Beer
+use Illuminate\Database\Eloquent\Model;
+
+class Beer extends Model
 {
-	public function all()
-	{
-		return array(
-			"jelen",
-			"lav",
-			"erdinger",
-			"pisner"
-		);
-	}
-
-
-	public function singleBeer($id)
-	{
-		$all = $this->all();
-
-		return $all[$id];
-	}
+	var $timestamps = false;
 }
