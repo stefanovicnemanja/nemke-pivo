@@ -8,7 +8,7 @@
 <ul>
 	<?php foreach($beers as $beer) : ?>
 
-	<li><a href="/beer/<?php echo $beer['id'] ?>"><?php echo $beer['brand']; ?></a></li>
+	<li><a href="/beer/<?php echo $beer['id']; ?>"><?php echo $beer['brand']; ?></a></li>
 
 	<?php endforeach; ?>
 </ul>

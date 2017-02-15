@@ -54,7 +54,7 @@ class PivoController
 
 		$this->beer->save();
 
-		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index'); 
+		// return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index'); 
 	}
 
 
@@ -71,30 +71,23 @@ class PivoController
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
 		return view('pivo::edit', compact('beer'));
-
 	}
 
 
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		$beer = $this->beer->where('id', $id)->firstOrFail();
-
-		// $beer = Beer::find($id);
-
-		$this->beer->brand = $this->request->input('beer-brand');
-		$this->beer->description = $this->request->input('beer-description');
-		$this->beer->type_id = $this->request->input('beer-type');		
-
-		dd($beer);
+		$this->beer->brand = $this->$request->input('beer-update');
 
 		$this->beer->save();
 
-		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index'); 
+		Session::flash('flash_message', 'Task successfully added!');
+
+    	return redirect()->back();
 	}
 
 
 	public function destroy($id)
 	{
-		$beer = Beer::destroy($id);	
+		//
 	}
 }
