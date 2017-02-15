@@ -78,23 +78,32 @@ class PivoController
 	public function update($id)
 	{
 		$beer = $this->beer->where('id', $id)->firstOrFail();
+		// $beer = Beer::find($id);     
+		// $beer= $this->beer->find($id);
 
-		// $beer = Beer::find($id);
+		$beer->brand = $this->request->input('beer-brand');
+		$beer->description = $this->request->input('beer-description');
+		$beer->type_id = $this->request->input('beer-type');
 
-		$this->beer->brand = $this->request->input('beer-brand');
-		$this->beer->description = $this->request->input('beer-description');
-		$this->beer->type_id = $this->request->input('beer-type');		
+		$beer->save();
 
-		dd($beer);
-
-		$this->beer->save();
-
-		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index'); 
+		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index');
 	}
 
 
 	public function destroy($id)
 	{
-		$beer = Beer::destroy($id);	
+
+		// $beer = $this->beer->find($id);
+
+		// $beer->delete();
+
+		$beer = $this->beer;
+
+		$beer->destroy($id);
+
+		// $beer = $this->request->input('delete-button')->destroy();
+
+		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index');
 	}
 }

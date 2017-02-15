@@ -15,9 +15,5 @@ Route::get('/', function () {
     return 'Здраво пивопије, ође ви је пиво!';
 });
 
-Route::resource('beer', 'Nemke\Pivo\App\Http\Controllers\PivoController');			// Kada ukucamo beer obraca se kontroleru
-Route::post('beer/{id}', 'Nemke\Pivo\App\Http\Controllers\PivoController@update');
-// Route::get('piva', 'Nemke\Pivo\App\Http\Controllers\PivoController@index');
-// Route::get('piva/single/{id}', 'Nemke\Pivo\App\Http\Controllers\PivoController@single');
-
-// Route::resource('boilerplate', 'Digima\Boilerplate\App\Http\Controllers\BoilerplateController');
+// Kada ukucamo beer obraca se kontrolerus
+Route::resource('beer', 'Nemke\Pivo\App\Http\Controllers\PivoController');
