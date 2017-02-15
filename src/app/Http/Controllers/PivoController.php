@@ -13,10 +13,11 @@ class PivoController
 
 	var $request;
 
-
-	function __construct(Beer $beer, Request $request)	// U svojstvo $beer smesta model Beer
-	{
-		$this->beer = $beer;			// beer se zove po svojstvu zato sto je tako lakse, a ovo sluzi samo da bi moglo da mu se pristupi iz svih metoda ove klase
+	// U svojstvo $beer smesta model Beer
+	function __construct(Beer $beer, Request $request)	
+	{	
+		// beer se zove po svojstvu zato sto je tako lakse, a ovo sluzi samo da bi moglo da mu se pristupi iz svih metoda ove klase
+		$this->beer = $beer;			
 
 		$this->request = $request;
 	}
@@ -28,7 +29,7 @@ class PivoController
 
 		// dd($beers);
 
-		return view('pivo::index', compact('beers'));
+		return view('pivo::beers/index', compact('beers'));
 	}
 
 
@@ -42,7 +43,7 @@ class PivoController
 
 	public function create()
 	{
-		return view('pivo::create');
+		return view('pivo::beers/create');
 	}
 
 
@@ -62,7 +63,7 @@ class PivoController
 	{
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
-		return view('pivo::single', compact('beer'));
+		return view('pivo::beers/single', compact('beer'));
 	}
 
 
@@ -70,7 +71,7 @@ class PivoController
 	{
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
-		return view('pivo::edit', compact('beer'));
+		return view('pivo::beers/edit', compact('beer'));
 
 	}
 
