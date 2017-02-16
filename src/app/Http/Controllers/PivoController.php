@@ -4,6 +4,7 @@ namespace Nemke\Pivo\App\Http\Controllers;
 
 // use Illuminate\View;
 use Nemke\Pivo\App\Models\Beer;
+use Nemke\Pivo\App\Models\BeerType;
 use Illuminate\Http\Request;
 
 
@@ -11,13 +12,17 @@ class PivoController
 {
 	var $beer;
 
+	var $beerType;
+
 	var $request;
 
 	// U svojstvo $beer smesta model Beer
-	function __construct(Beer $beer, Request $request)	
+	function __construct(Beer $beer, BeerType $beerType, Request $request)	
 	{	
 		// beer se zove po svojstvu zato sto je tako lakse, a ovo sluzi samo da bi moglo da mu se pristupi iz svih metoda ove klase
 		$this->beer = $beer;			
+
+		$this->beerType = $beerType;
 
 		$this->request = $request;
 	}
@@ -43,7 +48,9 @@ class PivoController
 
 	public function create()
 	{
-		return view('pivo::beers/create');
+		$beerTypes = $this->beerType->all();
+
+		return view('pivo::beers/create', compact('beerTypes'));
 	}
 
 
@@ -63,15 +70,21 @@ class PivoController
 	{
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
-		return view('pivo::beers/single', compact('beer'));
+		$beerType = $this->beerType->where('id', $beer['type_id'])->first();
+
+		$beerType = $beerType['type_name'];
+
+		return view('pivo::beers/single', compact('beer', 'beerType'));
 	}
 
 
 	public function edit($id)
-	{
+	{	
+		$beerTypes = $this->beerType->all();	
+
 		$beer = $this->beer->where('id',$id)->firstOrFail();
 
-		return view('pivo::beers/edit', compact('beer'));
+		return view('pivo::beers/edit', compact('beer', 'beerTypes'));
 
 	}
 

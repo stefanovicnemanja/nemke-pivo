@@ -15,7 +15,7 @@
 	</form>
 
     <form action="/beertype/{{ $beertype['id'] }}" method="post">
-		<input type="submit" name="delete-button" value="Обриши јебенo <?php echo $beertype['type_name']; ?> пиво"> </input>
+		<input type="submit" name="delete-button" value="Обриши јебену <?php echo $beertype['type_name']; ?> врсту"> </input>
         <input type="hidden" name="_method" value="DELETE">
     </form>
 

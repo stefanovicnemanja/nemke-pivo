@@ -7,7 +7,7 @@
 
 	<p> <?php echo $beer['brand']; ?> <a href="/beer/<?php echo $beer['id']; ?>/edit">Промени <?php echo $beer['brand']; ?></a></p> 
 
-	<p>It belongs to type:<?php echo $beer['type_id']; ?></p>
+	<p>Припада врсти: {{ $beerType }}</p>
 
 	<a href="/beer"><< Назад на сва пива.</a>
 @endsection

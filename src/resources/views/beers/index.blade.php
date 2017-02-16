@@ -1,7 +1,7 @@
 @extends('pivo::layout')
 
 @section('content')
-<a href="/beer/create">upisi novo pivo</a>
+<a href="/beer/create">Упиши ново пиво</a>
 
 <p>Овде су сва пива.</p>
 
