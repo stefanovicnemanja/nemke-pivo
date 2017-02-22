@@ -6,6 +6,8 @@
 
 <p>Овде су излистане све врсте пива.</p>
 
+<a href="../beer">Врати на списак свих пива</a><br><br>
+
 <ul>
 	<?php foreach($beertypes as $beertype) : ?>
 

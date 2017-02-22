@@ -20,21 +20,42 @@ class PivoController
 	function __construct(Beer $beer, BeerType $beerType, Request $request)	
 	{	
 		// beer se zove po svojstvu zato sto je tako lakse, a ovo sluzi samo da bi moglo da mu se pristupi iz svih metoda ove klase
-		$this->beer = $beer;			
+		$this->beer = $beer;
 
 		$this->beerType = $beerType;
 
 		$this->request = $request;
+
 	}
 
 
 	public function index()
 	{
 		$beers = $this->beer->all();
+// dd($beers);
 
-		// dd($beers);
+		$error = 0;
 
-		return view('pivo::beers/index', compact('beers'));
+		foreach ($beers as $vopi) {
+   			 
+				if (is_null($vopi->stock)){
+
+					$error++;
+				}
+
+		}
+
+		if($error == count($beers)){
+
+				return view('pivo::beers/message');
+
+				}
+		else{
+
+				return view('pivo::beers/index', compact('beers'));
+
+				}
+							
 	}
 
 
@@ -59,6 +80,10 @@ class PivoController
 		$this->beer->brand = $this->request->input('beer-brand');
 		$this->beer->description = $this->request->input('beer-description');
 		$this->beer->type_id = $this->request->input('beer-type');
+		$this->beer->stock = $this->request->input('stock');
+		$this->beer->origin = $this->request->input('origin');
+
+
 
 		$this->beer->save();
 
@@ -98,6 +123,8 @@ class PivoController
 		$beer->brand = $this->request->input('beer-brand');
 		$beer->description = $this->request->input('beer-description');
 		$beer->type_id = $this->request->input('beer-type');
+		$beer->stock = $this->request->input('stock');
+		$beer->origin = $this->request->input('origin');
 
 		$beer->save();
 

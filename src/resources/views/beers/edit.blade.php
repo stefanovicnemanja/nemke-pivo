@@ -24,6 +24,12 @@
 
 		</select><br />
 
+		<label for="origin"> Произведено у {{ $beer['origin'] }} </label><br>		
+		<input type="text" name="origin" value="{{ $beer['origin'] }}"><br>
+
+		<label for="stock"> На стању тренутно:{{ $beer['stock'] }} ком. </label><br>		
+		<input type="text" name="stock" value="{{ $beer['stock'] }}"><br>
+
 		<input type="submit" value="Унеси">
 	</form>
 
