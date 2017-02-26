@@ -3,12 +3,13 @@
 namespace Nemke\Pivo\App\Http\Controllers;
 
 // use Illuminate\View;
+use App\Http\Controllers\Controller;
 use Nemke\Pivo\App\Models\Beer;
 use Nemke\Pivo\App\Models\BeerType;
 use Illuminate\Http\Request;
 
 
-class PivoController
+class PivoController extends Controller
 {
 	var $beer;
 
@@ -18,7 +19,8 @@ class PivoController
 
 	// U svojstvo $beer smesta model Beer
 	function __construct(Beer $beer, BeerType $beerType, Request $request)	
-	{	
+	{
+		// $this->middleware('auth');
 		// beer se zove po svojstvu zato sto je tako lakse, a ovo sluzi samo da bi moglo da mu se pristupi iz svih metoda ove klase
 		$this->beer = $beer;
 
@@ -32,30 +34,10 @@ class PivoController
 	public function index()
 	{
 		$beers = $this->beer->all();
-// dd($beers);
 
-		$error = 0;
+		return view('pivo::beers/index', compact('beers'));
 
-		foreach ($beers as $vopi) {
-   			 
-				if (is_null($vopi->stock)){
 
-					$error++;
-				}
-
-		}
-
-		if($error == count($beers)){
-
-				return view('pivo::beers/message');
-
-				}
-		else{
-
-				return view('pivo::beers/index', compact('beers'));
-
-				}
-							
 	}
 
 
@@ -147,4 +129,11 @@ class PivoController
 
 		return redirect()->action('\Nemke\Pivo\App\Http\Controllers\PivoController@index');
 	}
+
+
+	public function message()
+	{
+		$beers = $this->beer->all();
+	}
+
 }

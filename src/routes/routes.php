@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return 'Здраво пивопије, ође ви је пиво!';
+    return 'Здраво пивопије, ође ви је пиво! <a href="/beer">Кликните овде за сва пива</a>';
 });
 
 // Kada ukucamo beer obraca se kontroleru
-Route::resource('beer', 'Nemke\Pivo\App\Http\Controllers\PivoController');
+
+// Route::group(['middleware' => 'auth'], function() {
+// });
+
+Route::resource('/beer', 'Nemke\Pivo\App\Http\Controllers\PivoController');
 Route::resource('beertype', 'Nemke\Pivo\App\Http\Controllers\BeerTypeController');
